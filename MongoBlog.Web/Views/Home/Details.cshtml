@@ -1,0 +1,68 @@
+﻿@model MongoBlog.Web.ViewModels.PostVM
+
+@{
+    ViewBag.Title = this.Model.Title;
+
+    var relatedPosts = this.ViewBag.Related as IEnumerable<MongoBlog.Web.ViewModels.PostVM>;
+    var relatedPostsByTag = this.ViewBag.RelatedByTag as IEnumerable<MongoBlog.Web.ViewModels.PostVM>;
+}
+
+<fieldset>
+    <legend></legend>    
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Launch)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Launch)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.OriginalLanguage)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.OriginalLanguage)
+    </div>
+     <div class="display-label">
+         @Html.DisplayNameFor(model => model.AvailableLanguages)
+    </div>
+    <div class="display-field">
+       @{this.Html.RenderPartial("_PostLangsLinkTemplate", this.Model);}
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+@helper RenderRelated(MongoBlog.Web.ViewModels.PostVM post)
+{  
+    <div><a href="@this.Url.Action("Details", new {title = post.Slug})">@post.Title</a></div>    
+}
+
+@section rightCol{
+@if(null != relatedPosts && relatedPosts.Any()){
+    <div class="panel panel-primary">
+        <div class="panel-heading"><h5>Related posts</h5></div>
+        <div class="panel-body">
+        @foreach (var rp in relatedPosts)
+        {
+            @(RenderRelated(rp))           
+        }
+        </div>
+    </div>
+}
+
+@if (null != relatedPostsByTag && relatedPostsByTag.Any())
+{
+    <div class="panel panel-primary">
+        <div class="panel-heading"><h5>Related posts by tag</h5></div>
+        <div class="panel-body">
+        @foreach (var rp in relatedPostsByTag)
+        {
+            @(RenderRelated(rp)) 
+        }
+        </div>
+    </div>
+}
+}
+
+

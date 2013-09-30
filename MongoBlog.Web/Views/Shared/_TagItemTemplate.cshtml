@@ -1,0 +1,7 @@
+﻿@model MongoBlog.Web.ViewModels.TagVM
+@{
+    var tag = this.Model;    
+    if (null != tag) { 
+        <a href="@this.Url.Action(actionName: "Posts", controllerName:"Home", routeValues: new {tag = tag.Slug})" >@tag.Text <span class="badge">@tag.PostsCount</span></a>
+    }
+}

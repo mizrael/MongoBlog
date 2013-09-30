@@ -1,0 +1,14 @@
+﻿@model IEnumerable<MongoBlog.Web.ViewModels.TagVM>
+<div class="panel panel-primary">
+    <div class="panel-heading"><h5>Tag Cloud</h5></div>
+    <div class="panel-body">
+    @if (null != this.Model && this.Model.Any()) {
+        var max = this.Model.Max(t => t.PostsCount);        
+        foreach (var tag in this.Model)
+        {
+            var fontSize = 10 + (int)Math.Floor(((float)tag.PostsCount / max) * 10f);
+            <div class="pull-left" style="font-size:@(fontSize)px">@{this.Html.RenderPartial("_TagItemTemplate", tag);}</div>
+        } 
+    }
+    </div>
+</div>

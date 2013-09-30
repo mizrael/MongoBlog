@@ -1,0 +1,2 @@
+﻿@model MongoBlog.Web.ViewModels.PostVM
+@this.Html.Raw(string.Join(", ", this.Model.AvailableLanguages.Select(l => this.Html.ActionLink(l, "Details", new { title = this.Model.Slug, lang = l }).ToString()).ToArray()))

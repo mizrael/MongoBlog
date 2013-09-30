@@ -1,0 +1,31 @@
+﻿@model IEnumerable<MongoBlog.Web.ViewModels.PostVM>
+@{
+    ViewBag.Title = "Archive";
+    var page = (this.ViewBag.Page as int?).GetValueOrDefault(0) + 1;
+    var pagesCount = (int)this.ViewBag.TotalPages;
+    var totalCount = (int)(this.ViewBag.TotalCount);    
+    var currTag = this.ViewBag.Tag as MongoBlog.Web.ViewModels.TagVM;
+}
+
+<div class="container">
+    <div class="row">
+        <span>Total items: <b>@totalCount</b></span>
+        @if(null != currTag){
+            <span>filtered by: <b>@currTag.Text</b></span>
+        }
+        <span>Page <b>@page</b> of <b>@pagesCount</b></span>
+    </div>
+</div>
+
+<div class="row">
+    @if (null != this.Model && this.Model.Any()) {
+        foreach (var post in this.Model) {
+            this.Html.RenderPartial("_PostItemTemplate", post);
+        }
+    }
+</div>
+<div class="container">
+    <div class="row">
+    @this.Html.ActionLink("View more...", "Posts", new { page = page, tag = (null != currTag) ? currTag.Slug : string.Empty })
+    </div>
+</div>
