@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 using System.Web.Mvc;
-using MongoBlog.Web.Core;
+using MongoBlog.Core;
 using MongoBlog.Web.ViewModels.Adapters;
 using MongoDB.Driver.Builders;
 

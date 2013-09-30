@@ -39,14 +39,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="FluentMongo">
-      <HintPath>..\packages\FluentMongo.1.3.1.1\lib\FluentMongo.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="MongoDB.Bson">
+    <Reference Include="MongoDB.Bson, Version=1.8.2.34, Culture=neutral, PublicKeyToken=f686731cfb9cc103, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\mongocsharpdriver.1.8.2\lib\net35\MongoDB.Bson.dll</HintPath>
     </Reference>
-    <Reference Include="MongoDB.Driver">
+    <Reference Include="MongoDB.Driver, Version=1.8.2.34, Culture=neutral, PublicKeyToken=f686731cfb9cc103, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\mongocsharpdriver.1.8.2\lib\net35\MongoDB.Driver.dll</HintPath>
     </Reference>
     <Reference Include="System" />
@@ -120,17 +119,13 @@
     <Compile Include="App_Start\DbConfig.cs" />
     <Compile Include="Controllers\TagController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Core\LanguageProvider.cs" />
     <Compile Include="ViewModels\Adapters\PostAdapter.cs" />
     <Compile Include="ViewModels\Adapters\TagAdapter.cs" />
     <Compile Include="ViewModels\PostVM.cs" />
     <Compile Include="ViewModels\TagVM.cs" />
-    <Compile Include="Core\MongoDAL.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Core\Models\Post.cs" />
-    <Compile Include="Core\Models\Tag.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -177,6 +172,16 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Home\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MongoBlog.Core\MongoBlog.Core.csproj">
+      <Project>{e2f9479d-721f-47cf-a8b4-8e058a69b3d6}</Project>
+      <Name>MongoBlog.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MongoBlog.Models\MongoBlog.Models.csproj">
+      <Project>{c13f9427-fc46-4e81-bbd0-3748e02d6d4d}</Project>
+      <Name>MongoBlog.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

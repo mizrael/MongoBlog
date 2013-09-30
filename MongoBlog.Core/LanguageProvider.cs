@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Web;
 
-namespace MongoBlog.Web.Core
+namespace MongoBlog.Core
 {
     public static class LanguageProvider
     {

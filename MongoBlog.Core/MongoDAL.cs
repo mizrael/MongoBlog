@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using FluentMongo.Linq;
+﻿using MongoBlog.Models;
 using MongoDB.Bson;
-using MongoDB.Bson.Serialization;
 using MongoDB.Driver;
-using MongoBlog.Web.Core.Models;
 
-namespace MongoBlog.Web.Core
+namespace MongoBlog.Core
 {
     public static class MongoDAL
     {

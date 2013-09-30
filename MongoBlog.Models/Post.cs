@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using MongoDB.Bson;
 
-namespace MongoBlog.Web.Core.Models
+namespace MongoBlog.Models
 {
     public class Post
     {

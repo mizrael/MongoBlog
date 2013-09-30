@@ -2,8 +2,8 @@
 using System.Web;
 using MongoDB.Bson;
 using MongoDB.Driver.Builders;
-using MongoBlog.Web.Core;
-using MongoBlog.Web.Core.Models;
+using MongoBlog.Core;
+using MongoBlog.Models;
 
 namespace MongoBlog.Web.ViewModels.Adapters
 {

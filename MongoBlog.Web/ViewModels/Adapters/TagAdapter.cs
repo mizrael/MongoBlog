@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using System.Web;
-using MongoBlog.Web.Core;
-using MongoBlog.Web.Core.Models;
+using MongoBlog.Core;
+using MongoBlog.Models;
 
 namespace MongoBlog.Web.ViewModels.Adapters
 {

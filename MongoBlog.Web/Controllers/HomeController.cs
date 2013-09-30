@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
-using MongoBlog.Web.Core;
-using MongoBlog.Web.Core.Models;
+using MongoBlog.Core;
+using MongoBlog.Models;
 using MongoBlog.Web.ViewModels;
 using MongoBlog.Web.ViewModels.Adapters;
 using MongoDB.Bson;

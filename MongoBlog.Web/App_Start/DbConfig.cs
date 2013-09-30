@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using FluentMongo.Linq;
 using MongoDB.Driver;
 using MongoDB.Driver.Builders;
-using MongoBlog.Web.Core;
-using MongoBlog.Web.Core.Models;
+using MongoBlog.Core;
+using MongoBlog.Models;
 
 namespace MongoBlog.Web
 {
@@ -46,7 +45,7 @@ namespace MongoBlog.Web
             posts.EnsureIndex(new IndexKeysBuilder().Ascending("Date"));            
             posts.EnsureIndex(new IndexKeysBuilder().Ascending("Tags.Slug"));
 
-            var tagArray = tags.AsQueryable().ToArray();
+            var tagArray = tags.FindAll().ToArray();
 
             for (int i = 0; i != 50000; ++i)
             {
@@ -74,6 +73,7 @@ namespace MongoBlog.Web
                 posts.Save(post);
             }
             
+            // WARNING!! MAY TAKE A LOT OF TIME!
             //var staticPosts = posts.AsQueryable().ToArray();
             //foreach (var post in staticPosts)
             //{
